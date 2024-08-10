@@ -14,6 +14,10 @@ connectMongoDB(process.env.MONGO_URI)
 
     app.use(express.json());
     app.use('/api/user', userRoute);
+
+    app.get("/api", (req, res) => {
+        res.send("API is running fine");
+    });
     
     app.listen(port, () => {
         console.log(`Server is running on port ${port}`);
